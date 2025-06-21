@@ -142,7 +142,6 @@ def build_image(image_name: str, image_tag: str) -> tuple[bool, str]:
     try:
         # Using `text=True` automatically handles decoding stdout/stderr
         env = os.environ.copy()
-        env["TMPDIR"] = "/home/ahmed/tmp"
         process = subprocess.Popen(
             ["podman", "build", "-t", full_image_tag, "."],
             stdout=subprocess.PIPE,
